@@ -39,6 +39,7 @@ def energy(im,h,w):
     energy=xg+yg
     return energy
 
+
 def test_energy():
     '''
     test the functionality of the energy function
@@ -61,6 +62,7 @@ def test_energy():
     assert np.all(energy(im,4,3)==result)
     print('Energy function works')
 test_energy()
+
 
 def seam_finder(im,h,w):
     '''
@@ -95,6 +97,7 @@ def seam_finder(im,h,w):
             result[i]=result[i-1]+dirs[i-1][int(result[i-1])]
     return result
 
+
 def seam_finder_test():
     im=Image.new('RGB',(3,4))
     im.putpixel((0,0),(255,101,51))
@@ -114,6 +117,7 @@ def seam_finder_test():
     print('Seam_finder works')
 seam_finder_test()
 
+
 def seam_remove(im,seam):
     '''
     takes an image and a list representing the position of the seam
@@ -131,6 +135,8 @@ def seam_remove(im,seam):
                 result.putpixel((position,j),rgb_im.getpixel((i,j)))
                 position+=1
     return result
+
+
 def seam_remove_test():
     im=Image.new('RGB',(3,4))
     im.putpixel((0,0),(255,101,51))
@@ -158,6 +164,7 @@ def seam_remove_test():
     print('Seam_move works')
 seam_remove_test()
 
+
 def seam_carve(im,w_desired):
     '''
     takes an image and a desired width
@@ -171,6 +178,7 @@ def seam_carve(im,w_desired):
         im=seam_remove(im,seam)
         w=w-1
     return im
+
 
 def seam_carve_test():
     im=Image.new('RGB',(3,4))
