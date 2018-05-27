@@ -12,7 +12,7 @@ def energy(im,h,w):
     # Initialize the engergy array as a row vector
     energy=np.zeros(size)
 
-    # Calculate the eneergy
+    # Calculate the energy
     for i in range(size):
         first_c=(i % w == 0); last_c=((i+1) % w == 0); last_r=(i+w >= size)
         if not first_c and not last_c:
