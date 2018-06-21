@@ -5,7 +5,7 @@ def shellSort(sequence):
     h = 1
     length = len(sequence)
     if length <= 1:
-        # trvial case
+        # trivial case
         return sequence
 
     while h < length:
