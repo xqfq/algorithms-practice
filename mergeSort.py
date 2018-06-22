@@ -30,7 +30,7 @@ def merge(s1,s2):
                 index2 += 1
     return result
 
-def mergeSort(sequence):
+def mergeSortTD(sequence):
     '''
     sort a sequence using merge sort algorithm
     '''
@@ -39,8 +39,21 @@ def mergeSort(sequence):
         return sequence
     else:
         # sort by sorting and merging the subsequences recursively
-        left = mergeSort(sequence[0:len(sequence)//2])
-        right = mergeSort(sequence[len(sequence)//2:])
+        left = mergeSortTD(sequence[0:len(sequence)//2])
+        right = mergeSortTD(sequence[len(sequence)//2:])
         return merge(left,right)
 
+def mergeSortBU(sequence):
+    size = 1
+    while size < len(sequence):
+        low = 0
+        while low < len(sequence):
+            sequence[low:min(low+2*size,len(sequence))] = merge(sequence[low:low+size],sequence[low+size:min(low+2*size,len(sequence))])
+            low += 2 * size
+        size = size * 2
+    return sequence
+
+        
+    
+        
 
